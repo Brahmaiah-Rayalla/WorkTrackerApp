@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+    layout:decorator="layout">
+<head>
+<title>GROUP USERS</title>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#list').DataTable();
+} );
+</script>
+</head>
+<body>
+    <div layout:fragment="content">
+        <h1>Group Users</h1>
+		<h3>List of Group mates</h3>
+        <div class="table-responsive">
+            <table  class="table table-striped table-bordered" style="width:100%" id="list">
+                <thead>
+                    <tr>
+                    	<th>#</th>
+                        <th>User</th>
+                        <th>Email</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Last Login</th>
+                        <th>Group Name</th>
+                       <!--  <th th:if="${g_user.isAdmin()}">Delete</th>
+                        <th th:if="${g_user.isAdmin()}">Edit</th> -->
+                        <th>Delete</th>
+                        <th>Edit</th>
+                        <th th:if="${g_user.isAdmin()}">Login as</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${users}">
+                    <td><img th:src="@{/user/profile-picture/{userName}(userName=${user.userName})}" onerror="this.src='/images/avatar.png'"  class="avatar"/></td>
+                        <td th:text="${user.userName}">user</td>
+                        <td th:text="${user.email}">email</td>
+                        <td th:text="${user.firstName}">first name</td>
+                        <td th:text="${user.lastName}">last name</td>
+                        <td th:text="${user.lastLogin}">last login</td>
+                        <td th:text="${user.groupName}">Group Name</td>
+                       <!--  <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/delete(id=${user.id})}">Delete</a></td>
+                        <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/edit/{id}(id=${user.id})}">Edit</a></td>
+                        <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/autologin(userName=${user.userName})}">Login As</a></td> -->
+                        <td><a th:href="@{/user/delete(id=${user.id})}" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"> Delete</span></a></td>
+                        <td><a th:href="@{/user/edit/{id}(id=${user.id})}" class="btn btn-info"><span class="glyphicon glyphicon-edit"> Edit</span></a></td>
+                        <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/autologin(userName=${user.userName})}" class="btn btn-primary"><span class="glyphicon glyphicon-user"> Login As</span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

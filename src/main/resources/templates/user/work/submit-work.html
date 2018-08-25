@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<title>Work Submission</title>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#currDate").val($.datepicker.formatDate("mm-dd-yy", new Date()));
+	});
+</script>
+</head>
+<body>
+	<div layout:fragment="content">
+		<form class="form-signin" th:action="@{/user/work}"
+			th:object="${userwork}" action="/user/work" method="post">
+			<h2 class="form-work-heading text-center">Submit work</h2>
+			<p class="alert alert-success"
+				th:if="${#httpServletRequest.getParameter('submitted')}">
+				<span style="font-size: 24px">Changes have been saved.<i
+					class="fa fa-fw fa-thumbs-up fa-2x"></i></span>
+			</p>
+			<p class="alert alert-danger"
+				th:if="${#httpServletRequest.getParameter('phase')}">Please
+				select phase field.</p>
+			<p class="alert alert-danger"
+				th:if="${#httpServletRequest.getParameter('status')}">Please
+				select Status field.</p>
+			<p class="alert alert-danger"
+				th:if="${#httpServletRequest.getParameter('hoursWorked')}">HoursWorked
+				field should be other than 0 !!!</p>
+			<div th:if="${#fields.hasErrors()}" class="alert alert-danger">
+				<div th:if="${#fields.hasErrors('taskId')}" th:errors="*{taskId}">taskId
+					error</div>
+				<div th:if="${#fields.hasErrors('taskDescription')}"
+					th:errors="*{taskDescription}">taskDescription error</div>
+				<div th:if="${#fields.hasErrors('phase')}" th:errors="*{phase}">phase
+					error</div>
+				<div th:if="${#fields.hasErrors('hoursWorked')}"
+					th:errors="*{hoursWorked}">hoursWorked error</div>
+				<div th:if="${#fields.hasErrors('comments')}"
+					th:errors="*{comments}">comments error</div>
+			</div>
+
+			<div class="input-group">
+				<span class="input-group-addon"><span class="fa fa-user"
+					style="font-size: 24px"></span> </span> <input
+					th:value="${g_user.userName}" type="text" id="uName" name="uName"
+					class="form-control" placeholder="" autofocus="autofocus"
+					disabled="disabled" required="required" />
+			</div>
+			<br />
+			<div class="input-group">
+
+				<span class="input-group-addon"><span class="fa fa-calendar"
+					style="font-size: 24px"> </span> </span> <input type="text" id="currDate"
+					name="currDate" class="form-control" placeholder=""
+					disabled="disabled" required="required" />
+			</div>
+			<br />
+			<div class="input-group">
+				<span class="input-group-addon"><span class="fa fa-tasks"
+					style="font-size: 24px"> </span></span> <input type="text" id="taskId"
+					name="taskId" class="form-control middle"
+					placeholder="Enter Task ID" required="required" />
+			</div>
+			<br />
+			<div class="input-group">
+				<span class="input-group-addon"><i class="material-icons"
+					style="font-size: 24px">description</i></span>
+				<textarea class="form-control rounded-0" id="taskDescription"
+					name="taskDescription" rows="2" required="required"
+					placeholder="Enter Task Description"></textarea>
+			</div>
+			<br />
+			<div class="input-group">
+				<span class="input-group-addon"><span class=""
+					style="font-size: 24px"> </span> Phase:</span> <select
+					class="form-control" id="phase" name="phase" th:field="*{phase}">
+					<div>
+						<option disabled="true" selected="selected" value="">Select
+							Task Phase</option>
+						<option value="Analysis">Analysis</option>
+						<option value="Design">Design</option>
+						<option value="Development or Coding">Development or
+							Coding</option>
+						<option value="UnitTesting">UnitTesting</option>
+						<option value="Testing(QA)">Testing(QA)</option>
+						<option value="Release Activities">Release Activities</option>
+					</div>
+				</select>
+			</div>
+			<br />
+			<div class="input-group">
+				<span class="input-group-addon"><span
+					class="glyphicon glyphicon-time" style="font-size: 24px"> </span>
+					Hours Worked:</span> <input class="form-control" id="hoursWorked"
+					name="hoursWorked" type="number" min="0" value="0"
+					required="required" />
+			</div>
+			<br />
+			<!-- <div class="input-group">
+				<span class="input-group-addon"><span class=""
+					style="font-size: 24px"> </span> Status:</span> <select
+					class="form-control" id="status" name="status" th:field="*{status}">
+					<div>
+						<option disabled="true" selected="selected" value="">Select
+							Task Status</option>
+						<option value="In-Progress">In-Progress</option>
+						<option value="Completed">Completed</option>
+					</div>
+				</select>
+			</div> -->
+			<br />
+			<div class="input-group">
+				<span class="input-group-addon"><span class="fa fa-comments"
+					style="font-size: 24px"> </span> Comments:</span>
+				<textarea class="form-control rounded-0" id="comments"
+					name="comments" rows="5" required="required"></textarea>
+			</div>
+
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+		</form>
+	</div>
+</body>
+</html>
