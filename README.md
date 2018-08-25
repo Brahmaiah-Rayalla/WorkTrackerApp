@@ -20,6 +20,7 @@ A daily Work Tracker -- can submit daily work and Dash board will display all th
   <li> User Edit </li>
   <li> List of Users Dsiplay with all the bootstrap styles</li>  
   <li> Group users </li>
+  <li> Upload Profile Picture </li>
   <li> Submit Daily Work</li>
   <li> Track Daily work using Dashboard </li>
   </ul>
@@ -33,5 +34,6 @@ A daily Work Tracker -- can submit daily work and Dash board will display all th
    <li> Recent Comments Trend view </li>
    </ul>
   
-  
+  # Build Tool
+  <li> Maven</li>
   
