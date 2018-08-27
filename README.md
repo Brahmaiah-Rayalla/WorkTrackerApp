@@ -1,7 +1,7 @@
 # WorkTrackerApp
 <i>Work tracker App Built-in using Spring thymeleaf with BootStrap styles and all the spring Components. 
 A daily Work Tracker -- can submit daily work and Dash board will display all the statistics of the logged-in user.</i>
-
+For more Info: http://brahma517.blogspot.com/2018/08/daily-work-tracker-application-using.html
 # Technologies Used
   <ul> Technical Stack <ul>
   <li> Spring Thymeleaf (front-end)</li>
@@ -38,8 +38,18 @@ A daily Work Tracker -- can submit daily work and Dash board will display all th
   <li> Maven</li>
   
   # Screen prints 
-  <li> Dashnoard</li>
-(https://3.bp.blogspot.com/-G5X5LImjC-8/W4HOsvr2CYI/AAAAAAAAMQY/obL7sHVXhGsgwUaxy6O2LyfV9celj3aXQCLcBGAs/s1600/Capture-6.PNG "Dashboard")
+  
+  Dashboard:
+  
+  ![Capture-6](https://github.com/Brahmaiah-Rayalla/WorkTrackerApp/blob/master/Capture-6.PNG)
+  
+  Other Screen prints:
+  
+  ![Capture-3](https://github.com/Brahmaiah-Rayalla/WorkTrackerApp/blob/master/Capture-3.PNG)
+  ![Capture-5](https://github.com/Brahmaiah-Rayalla/WorkTrackerApp/blob/master/Capture-5.PNG)
+  ![Capture-7](https://github.com/Brahmaiah-Rayalla/WorkTrackerApp/blob/master/Capture-7.PNG)
+  
+  
 
-For more Info: http://brahma517.blogspot.com/2018/08/daily-work-tracker-application-using.html
+
   
