@@ -6,7 +6,7 @@
 <title>Work Submission</title>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#currDate").val($.datepicker.formatDate("mm-dd-yy", new Date()));
+		$("#currDate").datepicker().datepicker("setDate", new Date());
 	});
 </script>
 </head>

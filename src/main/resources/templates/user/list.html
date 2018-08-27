@@ -1,58 +1,92 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
-    layout:decorator="layout">
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
 <head>
 <title>USERS LIST</title>
+
 <script type="text/javascript">
-$(document).ready(function() {
-    $('#list').DataTable();
-} );
-</script> 
+    $(document).ready(function () {
+        $('#list').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    text: '<span class="fa fa-copy fa-fw fa-2x" style="font-size:20px;color:black"></span> Copy',
+                    titleAttr: 'Copy Records',
+                    title: 'Users'
+                },  
+                {
+                    extend: 'excelHtml5',
+                    text: '<span class="fa fa-file-excel-o fa-fw fa-2x" style="font-size:20px;color:green"></span> Excel',
+                    titleAttr: 'Generate Excel' ,
+                    title: 'Users'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<span class="fa fa-file-pdf-o fa-fw fa-2x" style="font-size:20px;color:red"></span> PDF',
+                    titleAttr: 'Generate PDF',
+                    title: 'Users'
+                }
+               
+           ]
+        });
+    });
+</script>
 
 </head>
 <body>
-    <div layout:fragment="content">
-        <h1>Users List</h1>
+	<div layout:fragment="content">
+		<h1>Users List</h1>
 
-        <div>
-            <table class="table table-striped table-bordered" style="width:100%" id="list">
-                <thead>
-                    <tr>
-                    	<th>#</th>
-                        <th>User</th>
-                        <th>Email</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Last Login</th>
-                        <th>Group Name</th>
-                       <!--  <th th:if="${g_user.isAdmin()}">Delete</th>
+		<div>
+			<table class="table table-striped table-bordered" style="width: 100%"
+				id="list">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>User</th>
+						<th>Email</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Last Login</th>
+						<th>Group Name</th>
+						<!--  <th th:if="${g_user.isAdmin()}">Delete</th>
                         <th th:if="${g_user.isAdmin()}">Edit</th>
                         <th th:if="${g_user.isAdmin()}">Login as</th> -->
-                        <th>Delete</th>
-                        <th>Edit</th>
-                        <th th:if="${g_user.isAdmin()}">Login as</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="user : ${users}">
-                    	<td><img th:src="@{/user/profile-picture/{userName}(userName=${user.userName})}" onerror="this.src='/images/avatar.png'"  class="avatar"/></td>
-                        <td th:text="${user.userName}">>user</td>
-                        <td th:text="${user.email}">email</td>
-                        <td th:text="${user.firstName}">first name</td>
-                        <td th:text="${user.lastName}">last name</td>
-                        <td th:text="${user.lastLogin}">last login</td>
-                        <td th:text="${user.groupName}">Group Name</td>
-                       <!--  <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/delete(id=${user.id})}" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"> Delete</span></a></td>
+						<th>Delete</th>
+						<th>Edit</th>
+						<th th:if="${g_user.isAdmin()}">Login as</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user : ${users}">
+						<td><img
+							th:src="@{/user/profile-picture/{userName}(userName=${user.userName})}"
+							onerror="this.src='/images/avatar.png'" class="avatar" /></td>
+						<td th:text="${user.userName}">>user</td>
+						<td th:text="${user.email}">email</td>
+						<td th:text="${user.firstName}">first name</td>
+						<td th:text="${user.lastName}">last name</td>
+						<td th:text="${user.lastLogin}">last login</td>
+						<td th:text="${user.groupName}">Group Name</td>
+						<!--  <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/delete(id=${user.id})}" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"> Delete</span></a></td>
                         <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/edit/{id}(id=${user.id})}" class="btn btn-info"><span class="glyphicon glyphicon-edit"> Edit</span></a></td>
                         <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/autologin(userName=${user.userName})}" class="btn btn-primary"><span class="glyphicon glyphicon-user"> Login As</span></a></td> -->
-                        <td><a th:href="@{/user/delete(id=${user.id})}" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"> Delete</span></a></td>
-                        <td><a th:href="@{/user/edit/{id}(id=${user.id})}" class="btn btn-info"><span class="glyphicon glyphicon-edit"> Edit</span></a></td>
-                        <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/autologin(userName=${user.userName})}" class="btn btn-primary"><span class="glyphicon glyphicon-user"> Login As</span></a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+						<td><a th:href="@{/user/delete(id=${user.id})}"
+							class="btn btn-danger"><span
+								class="glyphicon glyphicon-remove-circle"> Delete</span></a></td>
+						<td><a th:href="@{/user/edit/{id}(id=${user.id})}"
+							class="btn btn-info"><span class="glyphicon glyphicon-edit">
+									Edit</span></a></td>
+						<td th:if="${g_user.isAdmin()}"><a
+							th:href="@{/user/autologin(userName=${user.userName})}"
+							class="btn btn-primary"><span
+								class="glyphicon glyphicon-user"> Login As</span></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>
