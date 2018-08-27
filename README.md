@@ -49,6 +49,8 @@ For more Info: http://brahma517.blogspot.com/2018/08/daily-work-tracker-applicat
   ![Capture-5](https://github.com/Brahmaiah-Rayalla/WorkTrackerApp/blob/master/Capture-5.PNG)
   ![Capture-7](https://github.com/Brahmaiah-Rayalla/WorkTrackerApp/blob/master/Capture-7.PNG)
   
+  Recent Changes-- Added PDF, Excel and Copy options to generate files
+  ![Capture-8](https://github.com/Brahmaiah-Rayalla/WorkTrackerApp/blob/master/Capture-8.PNG)
   
 
 
