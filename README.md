@@ -39,5 +39,7 @@ A daily Work Tracker -- can submit daily work and Dash board will display all th
   
   # Screen prints 
   <li> Dashnoard</li>
- ![](https://3.bp.blogspot.com/-G5X5LImjC-8/W4HOsvr2CYI/AAAAAAAAMQY/obL7sHVXhGsgwUaxy6O2LyfV9celj3aXQCLcBGAs/s1600/Capture-6.PNG "Dashboard")
+(https://3.bp.blogspot.com/-G5X5LImjC-8/W4HOsvr2CYI/AAAAAAAAMQY/obL7sHVXhGsgwUaxy6O2LyfV9celj3aXQCLcBGAs/s1600/Capture-6.PNG "Dashboard")
+
+For more Info: http://brahma517.blogspot.com/2018/08/daily-work-tracker-application-using.html
   
